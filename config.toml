@@ -1,0 +1,9 @@
+theme = "hugo-theme-blueberry-detox"
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "The Science of Dating"
+googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+
+[Params]
+  description = "Data-proven Insights from 21st Century Dating"
+

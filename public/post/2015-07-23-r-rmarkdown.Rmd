@@ -1,0 +1,35 @@
+---
+title: "You can't put a number to love, but researchers estimated one"
+author: "Frida Gomam"
+date: 2020-08-23T21:13:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Working with data scientists from eHarmony, an online dating website, experts from University of Bath  calculated that singletons have a **one in 562 chance of finding love on any given day**, considering they leave it entirely to fate. This was based on 18 key factors, such as desired age and physical attractiveness, which impact on the number of romantic options available to singles.
+
+1 in 562 means less than 0.2% given that fate will follow its natural course. Almost insignificant, right? However, this actually reveals a 65% chance of finding your love in an year just by waiting him/her to appear! 
+
+But the good news is that there are several things you can do to improve those odds in and accelerate the chance of meeting your _The One_. Surprinsigly or not, all of them suggest you should get exposed to people as much as you can. 
+
+```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE, echo = FALSE}
+par(mar = c(0, 1, 0, 1))
+odds <- 1/562
+pie(
+  c(odds
+    , odds * 0.17
+    , odds * 0.16
+    , odds * 0.15
+    , odds * 0.11
+    , odds * 0.09
+    , odds * 0.04
+    , odds * 0.01),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+```
