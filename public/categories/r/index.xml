@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on The Science of Dating</title>
-    <link>/categories/r/</link>
+    <link>/public/css/categories/r/</link>
     <description>Recent content in R on The Science of Dating</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 25 Aug 2020 21:13:14 -0500</lastBuildDate>
     
-	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/public/css/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>You can&#39;t put a number to love, but researchers estimated one</title>
-      <link>/post/2020-08-23-r-rmarkdown/</link>
+      <link>/public/css/post/2020-08-23-r-rmarkdown/</link>
       <pubDate>Tue, 25 Aug 2020 21:13:14 -0500</pubDate>
       
-      <guid>/post/2020-08-23-r-rmarkdown/</guid>
+      <guid>/public/css/post/2020-08-23-r-rmarkdown/</guid>
       <description>Dating has drastically changed over the last decades. The modern world now provides new ways to find love, such as online matchmaking and speed dating. Although it’s tough to put a number to love, have you ever wondered what are the odds of finding love?
 Working with data scientists from eHarmony, an online dating website, experts from University of Bath calculated that singletons have a 1 in 562 chance of finding love on any given day, considering they leave it entirely to fate.</description>
     </item>

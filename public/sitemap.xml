@@ -3,42 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/public/css/categories/</loc>
     <lastmod>2020-08-25T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/ggplot2/</loc>
+    <loc>/public/css/tags/ggplot2/</loc>
     <lastmod>2020-08-25T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>/public/css/post/</loc>
     <lastmod>2020-08-25T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
+    <loc>/public/css/categories/r/</loc>
     <lastmod>2020-08-25T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r-blogdown-r-markdown/</loc>
+    <loc>/public/css/tags/r-blogdown-r-markdown/</loc>
     <lastmod>2020-08-25T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/public/css/tags/</loc>
     <lastmod>2020-08-25T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/public/css/</loc>
     <lastmod>2020-08-25T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2020-08-23-r-rmarkdown/</loc>
+    <loc>/public/css/post/2020-08-23-r-rmarkdown/</loc>
     <lastmod>2020-08-25T21:13:14-05:00</lastmod>
   </url>
   
