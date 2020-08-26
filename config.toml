@@ -1,5 +1,5 @@
 theme = "hugo-theme-blueberry-detox"
-baseURL = "http://thescienceofdating.rbind.io/public/css"
+baseURL = "http://thescienceofdating.rbind.io/public/css/main.css"
 languageCode = "en-us"
 title = "The Science of Dating"
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
