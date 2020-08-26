@@ -1,17 +1,10 @@
-<<<<<<< HEAD
 
 [build.environment]
   HUGO_ENV = "production"
-  HUGO_VERSION = "0.74.3"
-=======
-[build]
-base = "themes/"
-publish = "public"
-command = "hugo"
->>>>>>> f629bb98ac95dc1890e82b952518843800f95598
+  HUGO_VERSION = "0.73.0"
 
 [context.production.environment]
-HUGO_VERSION = "0.74.3"
+HUGO_VERSION = "0.73.0"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 HUGO_ENABLEGITINFO = "true"
