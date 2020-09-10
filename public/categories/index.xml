@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on The Science of Dating</title>
-    <link>https://the-science-of-dating.netlify.app/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on The Science of Dating</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 07 Sep 2020 21:13:14 -0500</lastBuildDate>
     
-	<atom:link href="https://the-science-of-dating.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R</title>
-      <link>https://the-science-of-dating.netlify.app/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Mon, 07 Sep 2020 21:13:14 -0500</pubDate>
       
-      <guid>https://the-science-of-dating.netlify.app/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
