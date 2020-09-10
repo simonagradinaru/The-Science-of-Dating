@@ -1,12 +1,8 @@
 ---
 title: "You can't put a number to love, but researchers estimated one"
-author: "Simona Gradinaru"
-date: 2020-09-07T21:13:14-05:00
+date: "2020-09-07"
 categories: ["R"]
 tags: ["R Blogdown, R Markdown", "ggplot2"]
-output: 
-  html_document:
-    css: /css/main.css
 ---
 
 ```{r setup, include=FALSE}

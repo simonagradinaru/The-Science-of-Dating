@@ -1,12 +1,8 @@
 ---
 title: "A warm welcome to everyone who's curious"
-author: "Simona Gradinaru"
-date: 2020-08-25T21:13:14-05:00
+date: "2020-08-25"
 categories: ["R"]
 tags: ["R Blogdown, R Markdown"]
-output: 
-  html_document:
-    css: "/css/main.css"
 ---
 
 ```{r setup, include=FALSE}
