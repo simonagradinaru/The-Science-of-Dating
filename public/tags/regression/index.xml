@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>regression on The Science of Dating</title>
+    <title>regression on My New Hugo Site</title>
     <link>/tags/regression/</link>
-    <description>Recent content in regression on The Science of Dating</description>
+    <description>Recent content in regression on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Aug 2020 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>You can&#39;t put a number to love, but researchers estimated one</title>
-      <link>/post/2020-08-23-r-rmarkdown/</link>
-      <pubDate>Sun, 23 Aug 2020 21:13:14 -0500</pubDate>
+      <title>Hello R Markdown</title>
+      <link>/post/2015-07-23-r-rmarkdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/post/2020-08-23-r-rmarkdown/</guid>
-      <description>Working with data scientists from eHarmony, an online dating website, experts from University of Bath calculated that singletons have a one in 562 chance of finding love on any given day, considering they leave it entirely to fate. This was based on 18 key factors, such as desired age and physical attractiveness, which impact on the number of romantic options available to singles.
-1 in 562 means less than 0.</description>
+      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
   </channel>

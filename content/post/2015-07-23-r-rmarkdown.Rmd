@@ -1,0 +1,23 @@
+---
+title: "A warm welcome to everyone who's curious"
+author: "Simona Gradinaru"
+date: 2020-08-25T21:13:14-05:00
+categories: ["R"]
+tags: ["R Blogdown, R Markdown"]
+output: 
+  html_document:
+    css: /css/main.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+##### Hello there! 
+
+A warm welcome to everyone who's passionate about science or simply curious about... dating! I am thrilled to have you around and I'll do my best on keeping you reading further. Warning! There's more to come!
+
+If you're intrigued about who's behind the scenes, let me introduce myself. I'm [Simona Gradinaru](https://www.linkedin.com/in/simona-gradinaru/), currently a PhD Candidate in Social Sciences at [ASE](https://www.ase.ro) and a full-time Data Scientist at [YouGov](https://today.yougov.com), living in Bucharest, Romania. I started this project as a challenge to learn and get experience with `ggplot2`, `markdown` and `blogdown` and also as an opportunity to wrap up my skills into a catchy analysis worth spreading with everyone. And sincerely, I couldn't come up with a catchier idea then "The Science of Dating"!
+
+I hope you enjoy what you're discovering here. If you have any data supported insights, I'll be delighted to hear them at [simonaegradinaru@gmail.com](mailto:simonaegradinaru@gmail.com?subject=TheScienceofDating).
+
+##### Stay tuned!
