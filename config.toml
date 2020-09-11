@@ -12,7 +12,7 @@ googleAnalytics = "UA-177543919-1"
   custom_css = "css/main.css"
   
 [markup]
-  defaultMarkdownHandler = "blackFriday"
+  defaultMarkdownHandler = "blackfriday"
   
   [markup.blackFriday]
     angledQuotes = false
