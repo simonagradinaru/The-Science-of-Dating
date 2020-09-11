@@ -9,6 +9,7 @@ googleAnalytics = "UA-177543919-1"
   author = "Simona Gradinaru"
   description = "Data-proven Insights from 21st Century Dating"
   dateFormat = "2020-01-01"
+  custom_css = "css/main.css"
   
 [markup]
   defaultMarkdownHandler = "blackFriday"
