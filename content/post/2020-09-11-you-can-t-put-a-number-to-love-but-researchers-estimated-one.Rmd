@@ -6,7 +6,7 @@ tags: ["R Blogdown, R Markdown", "ggplot2"]
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, out.width = "100%")
 ```
 
 Dating has drastically changed over the last decades. The modern world now provides new ways to find love, such as online matchmaking and speed dating. Although it's tough to put a number to love, have you ever wondered what are the odds of finding love?
