@@ -1,6 +1,6 @@
 
 theme = "hugo-theme-detox"
-baseURL = "https://thescienceofdating.rbind.io"
+baseURL = "https://thescienceofdating.rbind.io/"
 languageCode = "en-us"
 title = "The Science of Dating"
 googleAnalytics = "UA-177543919-1"
