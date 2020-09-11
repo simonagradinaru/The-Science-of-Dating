@@ -1,3 +1,4 @@
+
 theme = "hugo-theme-detox"
 baseURL = "https://thescienceofdating.rbind.io"
 languageCode = "en-us"
@@ -7,10 +8,10 @@ googleAnalytics = "UA-177543919-1"
 [Params]
   author = "Simona Gradinaru"
   description = "Data-proven Insights from 21st Century Dating"
-  dateFormat = "2006-12-31"
+  dateFormat = "2020-01-01"
   
 [markup]
-  defaultMarkdownHandler = "blackfriday"
+  defaultMarkdownHandler = "blackFriday"
   
   [markup.blackFriday]
     angledQuotes = false
