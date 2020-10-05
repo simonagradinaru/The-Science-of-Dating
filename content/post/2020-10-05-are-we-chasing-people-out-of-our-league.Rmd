@@ -1,0 +1,60 @@
+---
+title: "Are we chasing people 'out of our league'?"
+date: "2020-10-05"
+categories: ["R"]
+tags: ["R Blogdown, R Markdown", "ggplot2"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, out.width = "100%")
+```
+
+Some people find the odds of 1 in 562 being unrealistically low. Others found themselves luckier than that and already have beat the odds. What if you're looking for someone who's 'out of your league'? If so, you may have already found yourself out of hope when looking for 'the one'. You may not be the only one having this problem, since it seems like a lot of people are dating aspirationally. 
+
+A [recent study](https://advances.sciencemag.org/content/4/8/eaap9815) conducted on the online dating market in US revealed that on average **both men and women pursue partners who are 25% more desirable than themselves**, even though this so called aspirational mate pursuit is calibrated to one’s own desirability. As one may have expected, some mate seekers still pursue people of similar average desirability to themselves, but the vast majority have a tendency to reach up the hierarchy towards more desirable partners. The results indicate that people tend to pursue the most attractive partners, especially when it comes to attributes such as physical attractiveness and income. Therefore people are following an interesting strategy of being aware of their position in the dating hierarchy, but at the same time they adjust their behavior accordingly while competing modestly for more desirable partners.
+
+The same pattern is confirmed by Pew Research Center in a survey conducted in 2019. The study followed the attitudes of US daters: those who are not married, living with a partner or in a committed romantic relationship, that have indicated they are currently looking for a committed romantic relationship, casual dates or both. Those who had difficulties in finding and dating people in the past year were asked about few possible reasons that might describe their misfortune. 
+
+The most frequent explanations include **the challenge of finding someone who is seeking for the same kind of relationship** (53% declare this is a major reason), **difficulties in approaching people** (46%) and troubles **finding someone who meets their expectations** (43%). Aspirational pursuit of mates confirmed again!
+
+```{r daters-reasons, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+library(reshape2)
+
+labels <- c("Hard to find someone who meets their expectations",
+            "Hard to find someone looking for the same kind of relationship as them",
+            "Hard for them to approach people")
+wrap_labels <- stringr::str_wrap(labels, width = 15)
+q1 <- c(35, 56)
+q2 <- c(45, 65)
+q3 <- c(52, 35)
+Gender <- c("Men", "Women")
+
+data.df <- data.frame(q3, q2, q1, Gender)
+melt.df <- melt(data = data.df, id.vars = c("Gender"))
+
+ggplot(data = melt.df, aes(x = variable, y = value, fill = Gender)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_x_discrete(labels = wrap_labels %>% rev(), name = element_blank()) +
+  scale_y_continuous(name = element_blank()) +
+  geom_text(aes(x = variable, y = value, fill = Gender, label = paste0(value, "%")), colour = "white", fontface = "bold", position = position_dodge2(width = 1), hjust = +1.5, vjust = +0.5) +
+  coord_flip() +
+  scale_fill_manual(values = viridis::viridis(3)[-3] %>% rev(), aesthetics = "fill") +
+  theme_minimal() +
+  ggtitle(stringr::str_wrap("% of daters by gender who have found it difficult or somewhat difficult in the past year, revealing which major reasons led to difficulties in finding people to date", width = 70)) + 
+  theme(plot.title = element_text(hjust = 0.4, face = "bold"), axis.text.y = element_text(size = 11))
+
+```
+
+
+There are very interesting and large differences by gender on this topic. **Women are far more likely than men to say the major reasons were finding someone who was loooking for the same type of relationship or who meets their expectations.** However, men are more likely than women to say that a major reasons is approaching people. 
+
+Other less common explanations included in the study were having a limited number of people to date in the area, being too busy or people not being interested in dating them. But researchers couldn't find any significant differences by gender with regard to any of these aspects. 
+
+##### Are men more shy or are women's expectations a real deal breaker for any possible conversation?
+
+It is true that the evidence found are available for the online dating market, but they could reveal some interesting insights about dating trends overall. In the Era of Digitalization, real life dating and online dating become more and more overalapped and it is difficult to find draw any clear boundary between the two.
+
+Sources: [Pew Research Center, 2020](https://www.pewsocialtrends.org/2020/08/20/nearly-half-of-u-s-adults-say-dating-has-gotten-harder-for-most-people-in-the-last-10-years/), [Aspirational pursuit of mates in online dating markets, 2018](https://advances.sciencemag.org/content/4/8/eaap9815).
