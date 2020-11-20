@@ -84,7 +84,7 @@ ggplot(data = dating.df, aes(x = Reason, y = Value, fill = Gender)) +
 
 People faking it is one of the most hated aspects of online dating, but **57% of online daters admitted they lied**. That involves lying about their names, location, marital status and appearance. Catfishing — when a person creates a fake identity to use online to pretend they are someone else — has become a real phenomenon, and psychologists are concerned it could become extensive during the pandemic. 
 
-Why are people lying online? It's clear: one in three people lie just for fun! Women are more likely than men to be afraid that someone could misuse their information, so they could avoid sharing accurate details, but men are more likely to lie for catching potential matches. It has already confirmed that people are dating aspirationally, so maybe lying is just a way of getting to someone who's out of your leave. Other people do it for less frequent reasons such as not wanting to be recognized by friends, acquaintances or the current partner and trying to catch their partner cheating.  
+Why are people lying online? It's clear: one in three people lie just for fun! Women are more likely than men to be afraid that someone could misuse their information, so they could avoid sharing accurate details, but men are more likely to lie for catching potential matches. It has already confirmed that people are dating aspirationally, so maybe lying is just a way of getting to someone who's out of your league. Other people do it for less frequent reasons such as not wanting to be recognized by friends, acquaintances or the current partner and trying to catch their partner cheating.  
 
 ```{r, reasons-for-lying-in-online-dating, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
 # Reasons for lying while dating online - data
@@ -127,10 +127,5 @@ ggplot(data = lie.df, aes(x = Reason, y = Value, fill = Gender)) +
   ggtitle(label = "Reasons for lying in online dating") +
   guides(guide_legend(reverse = TRUE))
 ```
-
-Thanks to dating apps, people are now carrying their dates around them in their pockets. Online dating relies on exchanging information, highly dependent on daters trust. At the same time, it's tough to trust someone you've never met and share to them some information which can be misused, if placed in the wrong hands.
-
-Balancing these concepts is similar to walking on thin ice, but the promised chance of improving the odds of finding ”The One” seems to be worth the price, since so many people are using online dating nowadays, despite all uncertainties. 
-
 
 Sources: [Insider, 2016](https://www.insider.com/catfishing-on-the-rise-because-of-covid-19-quarantines-2020-4); [Kaspersky Daily, 2017](https://www.kaspersky.com/blog/online-dating-report/).
