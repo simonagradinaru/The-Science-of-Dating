@@ -1,0 +1,136 @@
+---
+title: "People use online dating platforms just for fun, *but lying is fun too*"
+date: '2020-11-20'
+categories: ["R"]
+tags: ["R Blogdown, R Markdown", "ggplot2"]
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, out.width = "100%")
+library(ggplot2)
+library(stringr)
+library(viridis)
+library(reshape2)
+library(sysfonts)
+font_add_google("Source Sans Pro")
+```
+
+Dating has drastically changed over the last decades. Technology nowadays provides more convenient ways to find love, available across multiple devices and at any time of the day. Online dating provides users an ideal place to meet similar people and an algorithm that brings you closer to your "The one", if one could put his faith in an app.
+
+We are now turning to our devices for a variety of activities, from work, shop, and play, to managing our personal lives and relationships. This habit transforms our relationships into pocket-size ones.
+
+Interested to look after the data people care about the most, Kaspersky Lab (2017) has undertaken a study into people’s online dating habits, assessing attitudes of over 6,000 users from 30 countries. They found that **32%** of Internet users **are dating online**, so if you look around, someone near you is definitely dating online!
+
+#### People are twice as likely to look for ‘fun’ online than love.
+
+But why do people turn to online dating? According to the study, most of them seemed to be using it for fun, finding friends and having a good time with an interesting person. People are twice as likely to look for ‘fun’ online than love (a partner or a marriage).
+
+Gender differences also bring some interesting insights. Men are three times more likely to use online dating for sex (18% vs 5%), although few people actually aknowledged this reason, whilst men and women are equally likely to be looking for new connections and friends. There's also a tie for jealousy reasons, both sexes being equally likely to use online dating only for checking if the partner is cheating.
+
+
+```{r reasons-for-using-online-dating, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+library(ggplot2)
+library(stringr)
+library(viridis)
+library(reshape2)
+library(sysfonts)
+font_add_google("Source Sans Pro")
+
+# Reasons for using online dating - data
+usage.reasons <- c("To check my partner is not cheating on me",
+                   "To find a marriage partner",
+                   "For sex",
+                   "To find a partner",
+                   "To have a good time with an interesting person", 
+                   "To find friends", 
+                   "For fun"
+                   ) %>% factor(., levels = .)
+male.values <- c(.05, .12, .18, .2, .28, .41, .51)
+female.values <- c(.05, .1, .05, .17, .18, .41, .43)
+
+dating.data <- data.frame("Reason" = usage.reasons, "Male" = male.values, "Female" = female.values)
+dating.df <- reshape2::melt(dating.data, id.vars = "Reason") %>% 
+  magrittr::set_names(c("Reason", "Gender", "Value"))
+
+# Reasons for online dating - ggplot
+ggplot(data = dating.df, aes(x = Reason, y = Value, fill = Gender)) +
+  geom_bar(stat = "identity", position = position_dodge(-.9)) +
+  scale_x_discrete(labels = stringr::str_wrap(usage.reasons, width = 25), 
+                   name = element_blank()) + 
+  scale_y_continuous(name = element_blank()) + 
+  geom_text(aes(x = Reason, y = Value, fill = Gender, 
+                label = paste0(Value*100, "%")), 
+            colour = "white", size = 3.3, fontface = "bold", 
+            position = position_dodge(-.9), 
+            hjust = +1.3, vjust = +.45) + 
+  coord_flip() +
+  scale_fill_manual(values = c(viridis::viridis(20)[11],
+                               viridis::magma(20)[17]),
+                    aesthetics = "fill") + 
+  theme_minimal() +   
+  theme(text = element_text(family = "Source Sans Pro"),
+        plot.title = element_text(hjust = 0.5, face = "bold", size = 15),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(size = 10),
+        panel.grid = element_blank(), 
+        axis.line.y.left = element_line(colour = "grey", size = 0.2)) + 
+  ggtitle(label = "Reasons for using online dating") +
+  guides(guide_legend(reverse = TRUE)) 
+
+```
+
+#### Sometimes having fun means lying
+
+People faking it is one of the most hated aspects of online dating, but **57% of online daters admitted they lied**. That involves lying about their names, location, marital status and appearance. Catfishing — when a person creates a fake identity to use online to pretend they are someone else — has become a real phenomenon, and psychologists are concerned it could become extensive during the pandemic. 
+
+Why are people lying online? It's clear: one in three people lie just for fun of it! Women are more likely than men to be afraid that someone could misuse their accurate information, but men are more likely to lie for catching potential matches. It has already confirmed that people are dating aspirationally, so maybe lying is a way of getting to someone who's out of your leave. Other people do it for less frequent reasons such as not wanting to be recognized by friends, acquaintances or the current partner and trying to catch their partner cheating.  
+
+```{r, reasons-for-lying-in-online-dating, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+# Reasons for lying while dating online - data
+lie.reasons <- c("I was trying to catch my partner cheating on me", 
+                 "I didn't want my current partner to recognize me", 
+                 "I didn't want my friends or acquaintances to recognize me", 
+                 "I wanted to look more interesting for potential matches", 
+                 "I was afraid someone could misuse accurate information about me (blackmail, fraud)",
+                 "For fun"
+                 ) %>% factor(., levels = .)
+male.values <- c(.03, .06, .15, .19, .2, .36)
+female.values <- c(.03, .04, .15, .11, .34, .31)
+
+lie.data <- data.frame("Reason" = lie.reasons, "Male" = male.values, "Female" = female.values)
+lie.df <- reshape2::melt(lie.data, id.vars = "Reason") %>% 
+  magrittr::set_names(c("Reason", "Gender", "Value"))
+
+# Reasons for lying while dating online - ggplot
+ggplot(data = lie.df, aes(x = Reason, y = Value, fill = Gender)) +
+  geom_bar(stat = "identity", position = position_dodge(-.9)) +
+  scale_x_discrete(labels = stringr::str_wrap(lie.reasons, width = 25), 
+                   name = element_blank()) + 
+  scale_y_continuous(name = element_blank()) + 
+  geom_text(aes(x = Reason, y = Value, fill = Gender, 
+                label = paste0(Value*100, "%")), 
+            colour = "white", size = 3.3, fontface = "bold", 
+            position = position_dodge(-.9), 
+            hjust = +1.2, vjust = +.45) + 
+  coord_flip() +
+  scale_fill_manual(values = c(viridis::viridis(20)[11],
+                               viridis::magma(20)[17]),
+                    aesthetics = "fill") + 
+  theme_minimal() + 
+  theme(text = element_text(family = "Source Sans Pro"),
+        plot.title = element_text(hjust = 0.4, face = "bold", size = 15),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(size = 10),
+        panel.grid = element_blank(), 
+        axis.line.y.left = element_line(colour = "grey", size = 0.2)) +
+  ggtitle(label = "Reasons for lying in online dating") +
+  guides(guide_legend(reverse = TRUE))
+```
+
+Thanks to dating apps, people are now carrying their dates around them in their pockets. Online dating relies on exchanging information, highly dependent on daters trust. At the same time, it's tough to trust someone you've never met and share to them some information which can be misused, if placed in the wrong hands.
+
+Balancing these concepts is similar to walking on thin ice, but the promised chance of improving the odds of finding ”The One” seems to be worth the price, since so many people are using online dating nowadays, despite all uncertainties. 
+
+
+Sources: [Insider, 2016](https://www.insider.com/catfishing-on-the-rise-because-of-covid-19-quarantines-2020-4); [Kaspersky Daily, 2017](https://www.kaspersky.com/blog/online-dating-report/).
