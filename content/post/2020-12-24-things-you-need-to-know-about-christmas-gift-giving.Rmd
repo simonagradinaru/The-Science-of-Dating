@@ -19,7 +19,7 @@ It's the most wonderful time of the year and the happiest season of all, [Andy W
 
 Once the pressure on holiday traditions hits, everyone's anxiety goes higher with the list of gifts to be bought. Some people spend a lot of time searching and researching for the perfect gift, in the hope that it will bring that sparkle and joy to our beloved ones. And a lot of things differ when we're talking about a present for your partner, starting with how long you have been dating or going out. Let me give you some bad news first.
 
-### Unless you've been going out for a few weeks already, it's unlikely that you'll get a present from your "Santa".
+#### Unless you've been going out for a few weeks already, it's unlikely that you'll get a present from your "Santa".
 
 [YouGov](https://yougov.co.uk/topics/arts/survey-results/daily/2019/11/26/882a1/2) surveyed 1329 britains to find out what people think about when you should get your date a Christmas present. It seems like men are twice as likely than women to buy a gift after only 1-2 dates, but when it comes to longer relationships, women are almost twice more convinced that they should keep alive the Christmas spirit and offer a gift to their partner. 
 
@@ -78,7 +78,7 @@ ggplot(data = xmas.df, aes(x = Reason, y = Value, fill = Gender)) +
 
 Interestingly, the percentages drop for people who have been going out for longer than a few months. As a matter of fact, men are slightly more likely to say they should get a Christmas present at the first date rather than for a committed partner. It feels like men consider the Chrismas gift-giving more of an early relationship thing that fades away with time, whereas women associate offering gifts with a long-term relationship.
 
-### Safest choice for everyone: gift cards. 
+#### Safest choice for everyone: gift cards. 
 
 Finding the right gift may give a lot of headaches and stress to some people. If you still find yourself in the position of looking for a gift idea, here's what people would like to receive for Chrismas, according to [Statista](https://www.statista.com/statistics/643724/christmas-gifts-desired-by-consumers-by-gender/). Offering a gift card seems like the best suitable option for everyone, especially under the current pandemic restrictions. Don't worry, it's never late for getting a gift coupon, even if it's already Christmas Eve. 
 
