@@ -97,7 +97,7 @@ pandemic.df <- data.frame(Topic = attitude.topics,
 
 ```
 
-Covid-19 has created probably the most severe disruption in history and it has affected everything we know, massively changing our lives. It is that topic that everyone's talking about for more than a year already, generating collective concerns and responsibility. Uncertainty is the new normal nowadays and we're all trying to cope with it.
+Covid-19 has created probably the most severe disruption in history and it has affected everything we know, massively changing our lives. It is that topic that everyone is talking about for more than a year already, generating collective concerns and responsibility. Uncertainty is the new normal nowadays and we are all trying to cope with it.
 
 Surprisingly or not, dating has also changed during the pandemic. The economic fallout, lockdowns and restrictions have affected not only our perceptions, but also our expectations and the way perceive people. For this purpose, [Singles in America](https://www.singlesinamerica.com/home), a initiative powered by the [Match Group](https://uk.match.com), surveyed 5,000 americans back in August 2020 and revealed how people's attitudes have evolved as a result of Covid-19. 
 
