@@ -1,0 +1,256 @@
+---
+title: "Covid-19 changes everything, including dating"
+date: "2021-01-25"
+categories: ["R"]
+tags: ["R Blogdown", "R Markdown", "ggplot2"]
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, out.width = "100%")
+devtools::install_github("GuangchuangYu/ggimage")
+library(ggplot2)
+library(ggimage)
+library(stringr)
+library(sysfonts)
+library(ggrepel)
+library(tidyverse)
+library(forcats)
+font_add_google("Source Sans Pro")
+
+attitude.topics <- c(rep("Coronavirus impact", 12), 
+                     rep("Coronavirus changes", 12),
+                     rep("Coronavirus break consequences", 4), 
+                     rep("Economic fallout changes", 5), 
+                     rep("Begin in-person dating", 5), 
+                     rep("In-person dating changes", 10)
+                     )
+
+attitude.names <- c(rep("To what extend Coronavirus has affected your dating life?", 12),
+                    rep("I purposely stopped dating when the pandemic started", 4),
+                    rep("I stopped dating to focus on other areas", 4),
+                    rep("I was in a relationship but the other person ended it when the pandemic started", 4),
+                    # Did your time off from dating result in any of the following?
+                    "It made me feel rejuvenated to date again", 
+                    "It made me realize how time-consuming or burdensome dating was", 
+                    "It made me realize that I don't want to date right now", 
+                    "It made me realize I was focusing on the wrong things in my life",
+                    # How has the pandemic and the economic fallout affected your views on dating?
+                    "I'm more likely to date someone who is employed full-time", 
+                    "I'm more open to someone who is unemployed right now", 
+                    "I'm more eager to find a financially stable partner", 
+                    "I'm more apreciative of frugal people", 
+                    #"I feel my frugality has become a dating asset", 
+                    #"I feel my wealth has become more of a dating asset", 
+                    "I'm more inclined to spend less money on dating",
+                    rep("How ready are you to begin dating in-person again?", 5),
+                    # When you begin in-person dating again, if you haven't already, 
+                    # how do you plan to proceed compared to dating pre-pandemic? 
+                    "I'll be more selective about who I choose to go on a first date with", 
+                    "I will insist that we both wear masks throughout the date", 
+                    "I will only meet in-person with people who have quarantined or been lockdown for at least 14 days",
+                    "I will ask if they're experiencing any physical symptoms before I agree to meet in person", 
+                    "I will ask if they've been practicing social distancing", 
+                    "I will ask if they've been tested for Covid-19", 
+                    "I'll be more selective about where I go on a first date", 
+                    "If we go to a restaurant, I will insist we eat outside", 
+                    "I will only go on dates that involve outdoor activities", 
+                    "I'll be more selective about who I hug, kiss or shake hands with"
+                    )
+attitude.scales <- c(c("0 - Not at all affected", c(1:10), "11 - Very much affected"),
+                     c("Not at all", "Not very", "Somewhat", "Very"), 
+                     c("Not at all", "Not very", "Somewhat", "Very"), 
+                     c("Not at all", "Not very", "Somewhat", "Very"), 
+                     rep("Yes", 4), 
+                     rep("Yes", 5),
+                     "Not at all ready, it's too soon", 
+                     "Somewhat ready, but with precautions", 
+                     "Very ready", 
+                     "I have already started", 
+                     "I never stopped dating in-person", 
+                     rep("Yes", 10)
+                     )
+attitude.values <- c(c(.360, .054, .035, .032, .028, .081, .072, .072, .076, .059, .043, .07),
+                        c(.515, .132, .192, .161), 
+                        c(.492, .147, .205, .157),
+                        c(.708, .105, .125, .062), 
+                        round(390/(1376+390), digits = 3),
+                        round(553/(1213+553), digits = 3),
+                        round(643/(1123+643), digits = 3),
+                        round(370/(1396+370), digits = 3),
+                        
+                        round(1307/(3693+1307), digits = 3),
+                        round(622/(4378+622), digits = 3),
+                        round(1307/(3693+1307), digits = 3),
+                        round(861/(4139+861), digits = 3),
+                        # round(417/(4583+417), digits = 3),
+                        # round(295/(4705+295), digits = 3),
+                        round(1156/(3844+1156), digits = 3),
+                        
+                        c(.388, .286, .198, .047, .080), 
+                        c(.359, .204, .105, .172, .211, .163, .232, .138, .128, .203)
+                        )
+
+pandemic.df <- data.frame(Topic = attitude.topics, 
+                          Statement = attitude.names, 
+                          Answer = attitude.scales, 
+                          Value = attitude.values)
+
+```
+
+Covid-19 has created probably the most severe disruption in history and it has affected everything we know, massively changing our lives. It is that topic that everyone's talking about for more than a year already, generating collective concerns and responsibility. Uncertainty is the new normal nowadays and we're all trying to cope with it.
+
+Surprisingly or not, dating has also changed during the pandemic. The economic fallout, lockdowns and restrictions have affected not only our perceptions, but also our expectations and the way perceive people. For this purpose, [Singles in America](https://www.singlesinamerica.com/home), a initiative powered by the [Match Group](https://uk.match.com), surveyed 5,000 americans back in August 2020 and revealed how people's attitudes have evolved as a result of Covid-19. 
+
+Roughly **one in three people** purposely stopped dating when the pandemic started, typically deliverately for focusing on other areas. Unfortunately, one in five people found themselves in the position being dumped at the beginning of the pandemic. Even though the figures are quite low, it is enough to reveal an interesting pattern of reassessing priorities and focusing on the things that matter at the cost of postponing dating. Unfortunately, for some people that involved even breaking up with their current partner, if the things didn't seem to move in the right direction.
+
+
+```{r covid-changes, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+pandemic.df %>% 
+  filter(Topic == "Coronavirus changes") %>% 
+  ggplot(aes(x = forcats::fct_rev(Answer), y = Value)) + 
+  geom_bar(stat = "identity", fill = "#3078b4", width = .7) + 
+  geom_text(aes(x = forcats::fct_rev(Answer), 
+                y = Value, 
+                label = paste0(Value*100, "%")), 
+            size = 3.3, fontface = "bold", 
+            position = position_dodge(-.9), 
+            hjust = -.3, vjust = +.45) + 
+  scale_y_continuous(limits = c(0, .9)) + 
+  coord_flip() + 
+  facet_grid(~ Statement, labeller = label_wrap_gen(width = 40)) + 
+  theme_minimal() +   
+  theme(text = element_text(family = "Source Sans Pro"),
+        plot.title = element_text(hjust = 0.5, face = "bold", size = 15),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        axis.text.y = element_text(size = 10),
+        panel.grid = element_blank(), 
+        strip.background = element_rect(fill = "grey90", size = 0),
+        axis.line.y.left = element_line(colour = "grey", size = 0.2),
+        legend.title = element_blank()) +
+  ggtitle(label = stringr::str_wrap("To what extend Coronavirus has affected your dating life?",
+                                    width = 70)) 
+```
+
+#### Financial stability matters more during uncertain times
+
+Investigating this topic further, people who took a break from dating during pandemic were asked what changed during their time off from dating. Top answers reveal that singles are more eager to find a **financially stable partner**, more likely to date someone who is **employed full-time** or more inclined to **spend less money on dating**. It looks like people have started to put some importance on finding a financiallly stable partner, hoping that it will eventually lead to emotional stability as well. Everyone agrees that financial uncertainties could shake a relationship, but being unemployed is really such a deal-breaker? Apparently, only one in eight people are more open to date someone who is unemployed now. 
+
+```{r fallout-changes, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+fallout_changes <- pandemic.df %>% 
+  filter(Topic == "Economic fallout changes") %>% 
+  mutate(Statement = factor(Statement, levels = Statement)) %>% 
+  arrange(Value)
+  
+fallout_changes %>% 
+  ggplot(aes(x = reorder(Statement, Value), y = Value)) + 
+  geom_bar(stat = "identity", fill = "#3078b4", width = .8) + 
+  geom_text(aes(x = reorder(Statement, Value), 
+                y = Value, 
+                label = paste0(Value*100, "%")), 
+            size = 3.3, fontface = "bold", 
+            position = position_dodge(-.9), 
+            hjust = -.3, vjust = +.45) + 
+  scale_y_continuous(limits = c(0, 1)) + 
+  scale_x_discrete(labels = stringr::str_wrap(fallout_changes$Statement, width = 25),
+                   name = element_blank()) + 
+  coord_flip() + 
+  theme_minimal() +   
+  theme(text = element_text(family = "Source Sans Pro"),
+        plot.title = element_text(hjust = 0.5, face = "bold", size = 15),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        axis.text.y = element_text(size = 10),
+        panel.grid = element_blank(), 
+        strip.background = element_rect(fill = "grey90", size = 0),
+        axis.line.y.left = element_line(colour = "grey", size = 0.2),
+        legend.title = element_blank()) +
+  ggtitle(label = stringr::str_wrap("Did your time off from dating result in any of the following?",
+                                    width = 50)) 
+```
+
+#### Love, delayed - We're not ready to begin dating again and we're cautious about it
+
+Another topic worth considering is how ready people are to begin dating in-person again. **Two thirds** of people think it's either too soon or that it requires some precautions. Some people are excited and very ready to get back to their usual dates, but very few have already started or have never stoped dating. Since the pandemic hasn't been officially defeated, some people are still reluctant to shake hands, being difficult to trust anyone who's willing to enter our lives. Does that also affect the way we approach dates? Researchers even found that those who felt more vulnerable to disease made them less interested in their prospective dates.
+
+```{r back-inperson-dating, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+inperson_dating <- pandemic.df %>% 
+  filter(Topic == "Begin in-person dating") %>% 
+  mutate(Answer = factor(Answer, levels = Answer))
+
+inperson_dating %>% 
+  ggplot(aes(x = reorder(Answer, Value), y = Value)) + 
+  geom_bar(stat = "identity", fill = "#f0777b", width = .8) + 
+  scale_y_continuous(limits = c(0, 1)) + 
+  geom_text(aes(x = reorder(Answer, Value), 
+                y = Value, 
+                label = paste0(Value*100, "%")), 
+            size = 3.3, fontface = "bold", 
+            position = position_dodge(-.9), 
+            hjust = -.3, vjust = +.45) + 
+  coord_flip() + 
+  theme_minimal() +   
+  theme(text = element_text(family = "Source Sans Pro"),
+        plot.title = element_text(hjust = 0.5, face = "bold", size = 15),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        axis.text.y = element_text(size = 10),
+        panel.grid = element_blank(), 
+        axis.line.y.left = element_line(colour = "grey", size = 0.2),
+        legend.title = element_blank(),
+        legend.position = c(.9, .9),
+        strip.text = element_blank()) + 
+  ggtitle(label = stringr::str_wrap("How ready are you to begin dating in-person again?",
+                                    width = 50)) 
+```
+
+#### What's changing?
+
+People are being more selective and more intentional not only about whom they're reaching out to in the first place, but also about where we go on that first date. Parasitic organisms have affected human beings throughout history, but now we better understand how we can use our personal health, hygiene and social distance as barriers against those threats, but this is shaking the trust we put in other people. **One in five** persons will be more selective about who they hug, kiss or shake hands with, being slightly hesitant when it comes to trust someone else. Some people will insist on wearing masks throughout the date, while some others have become more drastic, insisting on eating outside at a restaurant or having only dates that involve outdoor activities. 
+
+
+```{r inperson-dating-changes, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+inperson_changes <- pandemic.df %>% 
+  filter(Topic == "In-person dating changes") %>% 
+  mutate(Statement = factor(Statement, levels = Statement)) %>% 
+  arrange(Value)
+inperson_changes[-1,] %>% 
+  ggplot(aes(x = reorder(Statement, Value), y = Value)) + 
+  #geom_point(shape = 8, size = 2, colour = "#f78295") + 
+  geom_image(aes(image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhykDIl_wkEHLXfantG4oOF9PgNxxPZBIOUA&usqp=CAU"), 
+            asp = 1.1) +
+  geom_text(aes(x = reorder(Statement, Value), 
+                y = Value, 
+                label = paste0(Value*100, "%")), 
+            size = 3.3, fontface = "bold", 
+            position = position_dodge(-.9), 
+            hjust = -.5, vjust = +.45) + 
+  scale_y_continuous(limits = c(0, 1)) + 
+  scale_x_discrete(labels = stringr::str_wrap(inperson_changes$Statement[-1], width = 35), 
+                   name = element_blank()) + 
+  coord_flip() + 
+  theme_minimal() +   
+  theme(text = element_text(family = "Source Sans Pro"),
+        plot.title = element_text(hjust = 0.5, face = "bold", size = 15),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        axis.text.y = element_text(size = 10),
+        panel.grid.major.x = element_blank(), 
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "grey90", size = 0),
+        axis.line.y.left = element_line(colour = "grey", size = 0.2),
+        legend.title = element_blank()) +
+  ggtitle(label = stringr::str_wrap("When you begin in-person dating again, how do you plan to proceed compared to dating pre-pandemic?",
+                                    width = 50)) 
+
+```
+
+
+#### The stakes are now higher.
+
+During the pandemic, a majority of daters didn't want to leave homes at all, which came as a huge impediment for dating other people. As a consequence, the dating apps have kept up the pace with the new requirements and included video functionalities, which gave birth to a new phenomenon: the video date. An extensive screening process has replaced the old-fashioned first dates and now more than ever people want to make sure the person they're interested in is worth stepping out for.
+
+Covid-19 has made dating harder than it was before. The only way to meet people during these times is online, using social media or online dating apps. But it can take weeks or months to build a meaningful relationship and it's more labourious than ever. Sometimes even promising relationships fail because people aren't at their best right now, being surrounded by uncertainty, disease and financial instability. But one of the things that this crisis may have taught us is that we need to be more honest with ourselves and have deeper, more meaningful conversations with the people we're dating.
+
+Sources: [Singles in America, 2020](https://www.singlesinamerica.com/home); [BBC, 2020](https://www.bbc.com/worklife/article/20201116-how-the-pandemic-has-changed-our-romantic-relationships);
+[VOX, 2020](https://www.vox.com/the-highlight/21550996/dating-love-coronavirus-covid-19-singles-relationships).
