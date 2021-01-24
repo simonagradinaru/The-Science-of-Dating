@@ -171,7 +171,7 @@ fallout_changes %>%
 
 #### Love, delayed - We're not ready to begin dating again and we're cautious about it
 
-Another topic worth considering is how ready people are to begin dating in-person again. **Two thirds** of people think it's either too soon or that it requires some precautions. Some people are excited and very ready to get back to their usual dates, but very few have already started or have never stoped dating. Since the pandemic hasn't been officially defeated, some people are still reluctant to shake hands, being difficult to trust anyone who's willing to enter our lives. Does that also affect the way we approach dates? Researchers even found that those who felt more vulnerable to disease made them less interested in their prospective dates.
+Another topic worth considering is how ready people are to begin dating in-person again. **Two thirds** of people think it is either too soon or that it requires some precautions. Some people are excited and very ready to get back to their usual dates, but very few have already started or have never stoped dating. Since the pandemic hasn't been officially ended, some people are still reluctant to shake hands, being difficult to trust anyone who's willing to enter our lives. Does that also affect the way we approach dates? Researchers even found that those who felt more vulnerable to disease made them less interested in their prospective dates.
 
 ```{r back-inperson-dating, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
 inperson_dating <- pandemic.df %>% 
@@ -206,7 +206,7 @@ inperson_dating %>%
 
 #### What's changing?
 
-People are being more selective and more intentional not only about whom they're reaching out to in the first place, but also about where we go on that first date. Parasitic organisms have affected human beings throughout history, but now we better understand how we can use our personal health, hygiene and social distance as barriers against those threats, but this is shaking the trust we put in other people. **One in five** persons will be more selective about who they hug, kiss or shake hands with, being slightly hesitant when it comes to trust someone else. Some people will insist on wearing masks throughout the date, while some others have become more drastic, insisting on eating outside at a restaurant or having only dates that involve outdoor activities. 
+People are being more selective and more intentional not only about whom they are reaching out to in the first place, but also about where we go on that first date. Parasitic organisms have affected human beings throughout history, but now we better understand how we can use our personal health, hygiene and social distance as barriers against those threats, but this is shaking the trust we put in other people. **One in five** persons will be more selective about who they hug, kiss or shake hands with, being slightly hesitant when it comes to trust someone else. Some people will insist on wearing masks throughout the date, while some others have become more drastic, insisting on eating outside at a restaurant or having only dates that involve outdoor activities. 
 
 
 ```{r inperson-dating-changes, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
