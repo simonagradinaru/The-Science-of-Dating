@@ -134,7 +134,7 @@ pandemic.df %>%
 
 #### Financial stability matters more during uncertain times
 
-Investigating this topic further, people who took a break from dating during pandemic were asked what changed during their time off from dating. Top answers reveal that singles are more eager to find a **financially stable partner**, more likely to date someone who is **employed full-time** or more inclined to **spend less money on dating**. It looks like people have started to put some importance on finding a financiallly stable partner, hoping that it will eventually lead to emotional stability as well. Everyone agrees that financial uncertainties could shake a relationship, but being unemployed is really such a deal-breaker? Apparently, only one in eight people are more open to date someone who is unemployed now. 
+Investigating this topic further, people who took a break from dating during pandemic were asked what changed during their time off from dating. Top answers reveal that singles are more eager to find a **financially stable partner**, more likely to date someone who is **employed full-time** or more inclined to **spend less money on dating**. It looks like people have started to put some importance on finding a financially stable partner, hoping that it will eventually lead to emotional stability as well. Everyone agrees that financial uncertainties could shake a relationship, but being unemployed is really such a deal-breaker? Apparently, only one in eight people are more open to date someone who is unemployed now. 
 
 ```{r fallout-changes, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
 fallout_changes <- pandemic.df %>% 
@@ -206,7 +206,7 @@ inperson_dating %>%
 
 #### What's changing?
 
-People are being more selective and more intentional not only about whom they are reaching out to in the first place, but also about where we go on that first date. Parasitic organisms have affected human beings throughout history, but now we better understand how we can use our personal health, hygiene and social distance as barriers against those threats, but this is shaking the trust we put in other people. **One in five** persons will be more selective about who they hug, kiss or shake hands with, being slightly hesitant when it comes to trust someone else. Some people will insist on wearing masks throughout the date, while some others have become more drastic, insisting on eating outside at a restaurant or having only dates that involve outdoor activities. 
+People are being more selective and more intentional not only about whom they are reaching out to in the first place, but also about where they go on that first date. Parasitic organisms have affected human beings throughout history, but now we better understand how we can use our personal health, hygiene and social distance as barriers against those threats, but this is shaking the trust we put in other people. **One in five** persons will be more selective about who they hug, kiss or shake hands with, being slightly hesitant when it comes to trust someone else. Some people will insist on wearing masks throughout the date, while some others have become more drastic, insisting on eating outside at a restaurant or having only dates that involve outdoor activities. 
 
 
 ```{r inperson-dating-changes, tidy = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
